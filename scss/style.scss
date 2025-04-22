@@ -1,7 +1,7 @@
 /*
-Theme Name: Qwel Two Beta
+Theme Name: Qwel Two
 Description: This is a theme for someone's portfolio or blog. You can customize and use.
-Version: 1.0
+Version: 2.0
 Requires PHP: 7.4
 Author: Taigo Ito
 Author URI: https://qwel.design/
@@ -12,47 +12,47 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 @charset "utf-8";
 
 // Settings
-@import "foundation/settings/colorSystem";
-@import "foundation/settings/gridSystem";
-@import "foundation/settings/typography";
+@import "settings/colorSystem";
+@import "settings/gridSystem";
+@import "settings/typography";
 
 // Mixins
-@import "foundation/mixins/background";
-@import "foundation/mixins/button";
-@import "foundation/mixins/form";
-@import "foundation/mixins/table";
-@import "foundation/mixins/type";
+@import "mixins/background";
+@import "mixins/button";
+@import "mixins/form";
+@import "mixins/table";
+@import "mixins/type";
 
 // Normalize
-@import "foundation/normalize";
+@import "normalize";
 
 // WP Blocks
-@import "foundation/wpBlocks";
+@import "wpBlocks";
 
 // Layout
-@import "layout/container";
-@import "layout/header";
-@import "layout/gNav";
-@import "layout/main";
-@import "layout/footer";
-@import "layout/titleArea";
+@import "container";
+@import "header";
+@import "gNav";
+@import "main";
+@import "footer";
+@import "titleArea";
 
 // Components
-@import "objects/components/button";
-@import "objects/components/cover";
-@import "objects/components/embed";
-@import "objects/components/form";
-@import "objects/components/icon";
-@import "objects/components/table";
+@import "button";
+@import "cover";
+@import "embed";
+@import "form";
+@import "icon";
+@import "table";
 
 // Projects
-@import "objects/projects/section";
-@import "objects/projects/postItem";
-@import "objects/projects/postList";
+@import "section";
+@import "postItem";
+@import "postList";
 
 // Utility
-@import "objects/utilities/flex";
-@import "objects/utilities/flexItem";
-@import "objects/utilities/spacing";
-@import "objects/utilities/text";
-@import "objects/utilities/visibility";
+@import "utilities/flex";
+@import "utilities/flexItem";
+@import "utilities/spacing";
+@import "utilities/text";
+@import "utilities/visibility";
