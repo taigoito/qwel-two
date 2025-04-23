@@ -8,16 +8,16 @@
 
     .post {
       @include col(4, false, "md");
-      margin-bottom: space(3);
+      margin-bottom: space("medium");
     }
 
     .postItem {
       &__heading {
-        font-size: $h4FontSize;
+        font-size: font-size("medium");
       }
 
       &__excerpt, &__more {
-        @include smallText();
+        @include small-text();
       }
 
       &__more {
@@ -28,9 +28,9 @@
 
   &.--list {
     .post {
-      margin-bottom: space(3);
-      padding-bottom: space(3);
-      border-bottom: 1px solid themeColor('dark');
+      margin-bottom: space("medium");
+      padding-bottom: space("medium");
+      border-bottom: 1px solid theme-color('dark');
 
       &:last-child {
         border: 0;
@@ -49,7 +49,7 @@
         }
 
         img {
-          aspect-ratio: 1 / $imgAspectRatio;
+          aspect-ratio: $img-aspect-ratio;
           object-fit: cover;
         }
       }
@@ -59,11 +59,11 @@
       }
 
       &__heading {
-        font-size: $h4FontSize;
+        font-size: font-size("large");
       }
 
       &__excerpt, &__more {
-        @include smallText();
+        @include small-text();
       }
 
       &__more {

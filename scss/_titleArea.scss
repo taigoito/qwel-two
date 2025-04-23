@@ -4,7 +4,7 @@
 
 .titleArea {
   &__container {
-    @extend %__containerLg;
+    @include container("lg");
   }
 
   &__title {

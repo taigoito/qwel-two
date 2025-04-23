@@ -24,13 +24,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 @import "mixins/type";
 
 // Normalize
+@import "root";
 @import "normalize";
 
 // WP Blocks
 @import "wpBlocks";
 
 // Layout
-@import "container";
 @import "header";
 @import "gNav";
 @import "main";
@@ -42,7 +42,6 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 @import "cover";
 @import "embed";
 @import "form";
-@import "icon";
 @import "table";
 
 // Projects

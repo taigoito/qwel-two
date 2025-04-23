@@ -1,14 +1,30 @@
 // Button
 
-@mixin makeBlock($size: 12rem) {
+$button-width:             10.5rem !default; // 標準幅は2col内に収まる
+$button-height:            3.5rem !default; // 標準高さは、標準幅の3分の1とする
+$button-max-height:        4.5rem !default; // 最大高さを設ける
+$boutton-rounded:          space("x-small") !default;
+$button-gradient-enabled:  false !default;
+$button-transform-enabled: true !default;
+$button-transform:         scale(96%) !default;
+
+// 幅と高さを指定して出力 (上下中央揃えの仕様上、テキストは1行まで)
+@mixin make-block($width: $button-width, $height: $button-height) {
   display: block;
-  width: $size;
-  margin: auto;
+  width: $width;
+  height: $height;
+  line-height: $height;
+  margin-left: auto;
+  margin-right: auto;
+  @if ($button-gradient-enabled) {
+    position: relative;
+    overflow: hidden;
+  }
 }
 
-@mixin makeButton($rounded: 3px) {
-  padding: space(2);
-  border: none;
+// ボタンの基本プロパティだけ出力 (インライン要素で作成したい場合等)
+@mixin make-button($rounded: $boutton-rounded) {
+  border: 0;
   border-radius: $rounded;
   text-align: center;
   text-decoration: none;
@@ -16,15 +32,60 @@
   outline: 0;
   user-select: none;
   cursor: pointer;
-  transition: all .25s ease-in-out;
+  transition: all 0.5s ease;
 
   &:hover {
-    opacity: 0.85;
+    text-decoration: none;
+    @if ($button-transform-enabled) {
+      transform: $button-transform;
+    }
   }
 }
 
-@mixin button($color: "primary", $size: 12rem, $rounded: 3px) {
-  @include background($color);
-  @include makeBlock($size);
-  @include makeButton($rounded);
+// UIとしての色を作成して出力
+@mixin make-button-color($key: $theme-accent) {
+  @if ($button-gradient-enabled) {
+    @include make-button-color-gradient($key);
+  } @else {
+    @include make-button-color-normal($key);
+  }
+  @if ($button-transform-enabled) {
+    &:hover {
+      box-shadow: 0 0 space() theme-color($key);
+    }
+  }
+}
+
+// 通常の色作成
+@mixin make-button-color-normal($key: $theme-accent) {
+  background-color: theme-color($key);
+  color: color-yiq($key);
+
+  &:hover {
+    background-color: color-change($key);
+    color: color-yiq($key, true);
+  }
+}
+
+// グラデーション作成
+@mixin make-button-color-gradient($key: $theme-accent) {
+  $base:       map-get($theme-colors, $key);
+  $hightlight: lighten($base, 30%);
+
+  color: color-yiq($key);
+  background: linear-gradient(-30deg, $base, $hightlight, $base, $base);
+  background-position: 0% 0%;
+  background-size: 150% 100%;
+
+  &:hover {
+    color: color-yiq($key);
+    background-position: 100% 0%;
+  }
+}
+
+@mixin button($key: $theme-accent, $width: $button-width, $height: $width / 3, $rounded: $boutton-rounded) {
+  $height: min($height, 4.5rem);
+  @include make-block($key, $width, $height);
+  @include make-button($rounded);
+  @include make-button-color($key);
 }

@@ -11,16 +11,4 @@
     margin: 0;
     line-height: 1;
   }
-
-  &__primaryMenu {
-    @media (max-width: breakpoint("md") - 0.1) {
-      display: none !important;
-    }
-  }
-
-  &__socialMenu {
-    @media (max-width: breakpoint("md") - 0.1) {
-      display: none !important;
-    }
-  }
 }

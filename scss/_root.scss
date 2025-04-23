@@ -1,0 +1,13 @@
+/**
+ * Root
+ */
+
+:root {
+  @each $key, $width in $container-widths {
+    --container-width--#{$key}: #{$width};
+  }
+
+  @each $key, $width in $container-pads {
+    --container-pad--#{$key}: #{$width};
+  }
+}

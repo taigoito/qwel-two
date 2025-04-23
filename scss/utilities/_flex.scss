@@ -2,7 +2,7 @@
  * Utility - Flex
  */
 
-$horizontalAlignValues: (
+$horizontal-align-values:  (
   center:  center, // 水平垂直共に適用される
   left:    flex-start,
   right:   flex-end,
@@ -10,26 +10,26 @@ $horizontalAlignValues: (
   between: space-between
 );
 
-$verticalAlignValues: (
+$vertical-align-values:    (
   center:  center, // 水平垂直共に適用される
   top:     flex-start,
   stretch: stretch
 );
 
-.--flex {
-  @each $key, $value in $horizontalAlignValues {
+.util--flex {
+  @each $key, $value in $horizontal-align-values {
     &_#{$key} {
       justify-content: $value !important;
     }
   }
 
-  @each $key, $value in $verticalAlignValues {
+  @each $key, $value in $vertical-align-values {
     &_#{$key} {
       align-items: $value !important;
     }
   }
 
-  @each $key, $value in $spacingValues {
+  @each $key, $value in $spacing-values {
     &_gap-#{$key} {
       gap: $value !important;
     }
@@ -37,19 +37,19 @@ $verticalAlignValues: (
 
   @each $key1, $breakpoint in $breakpoints {
     @media (min-width: $breakpoint) {
-      @each $key2, $value in $horizontalAlignValues {
+      @each $key2, $value in $horizontal-align-values {
         &_#{$key1}-#{$key2} {
           justify-content: $value !important;
         }
       }
 
-      @each $key2, $value in $verticalAlignValues {
+      @each $key2, $value in $vertical-align-values {
         &_#{$key1}-#{$key2} {
           align-items: $value !important;
         }
       }
 
-      @each $key2, $value in $spacingValues {
+      @each $key2, $value in $spacing-values {
         &_gap-#{$key1}-#{$key2} {
           gap: $value !important;
         }

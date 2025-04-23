@@ -5,25 +5,25 @@
 .postItem {
   &__image {
     img {
-      aspect-ratio: 1 / $imgAspectRatio;
+      aspect-ratio: $img-aspect-ratio;
       object-fit: cover;
     }
   }
 
   &__info {
-    margin-top: space(2);
-    margin-bottom: space(1);
-    font-size: $smallFontSize;
+    margin-top: space();
+    margin-bottom: space("x-small");
+    font-size: font-size("small");
   }
 
   &__heading {
-    margin-top: space(2);
-    margin-bottom: space(1);
-    font-size: $h3FontSize;
+    margin-top: space();
+    margin-bottom: space("x-small");
+    font-size: font-size("large");
   }
 
   &__excerpt {
-    margin-bottom: space(1);
+    margin-bottom: space("x-small");
   }
 
   &.--single {
@@ -34,7 +34,7 @@
 
       &__content {
         @include col(5, true);
-        margin-bottom: space(4);
+        margin-bottom: space("large");
       }
     }
   }

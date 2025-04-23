@@ -1,41 +1,34 @@
 // Type
 
-// ol, ulの設定を適用
+// ol, ul
 // Normalizeでは適用しない
-@mixin listUnstyled() {
+@mixin list-unstyled() {
   list-style: none;
   padding-left: 0;
 }
 
-// smallの設定を適用
-@mixin smallText() {
-  font-size: $smallFontSize;
-  line-height: $smallLineHeight;
-  letter-spacing: $smallLetterSpacing;
-}
-
-// blockquoteの設定を適用
+// blockquote
 @mixin blockquote() {
-  margin-top: $textMarginTop;
-  margin-bottom: $textMarginBottom;
+  margin-top: space();
+  margin-bottom: space();
   padding-left: 1em;
-  border-left: 4px solid $bodyColor;
+  border-left: space("x-small") solid $body-color;
 
   p, cite {
     font-style: italic;
-    @include smallText();
+    @include small-text();
   }
 }
 
-// リンクの設定を適用
-@mixin link() {
+// リンク文字列
+@mixin link-text($color: $link-color, $hover-color: $link-hover-color, $decoration: $link-decoration, $hoverDecoration: $link-hover-decoration) {
   &, &:active {
-    color: $linkColor;
-    text-decoration: $linkDecoration;
+    color: $color;
+    text-decoration: $decoration;
   }
   
   &:hover, &:focus {
-    color: $linkHoverColor;
-    text-decoration: $linkHoverDecoration;
+    color: $hover-color;
+    text-decoration: $hoverDecoration;
   }
 }

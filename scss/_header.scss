@@ -2,14 +2,14 @@
  * Layout - Header
  */
 
-$headerHeight: 4.5rem;
+$header-height:  4.5rem !default;
 
 .header {
-  height: $headerHeight;
+  height: $header-height;
 
   &__inner {
     height: 100%;
-    background-color: $bodyBg;
+    background-color: $body-bg;
   }
 
   &__container {

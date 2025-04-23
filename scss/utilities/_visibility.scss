@@ -2,7 +2,7 @@
  * Utility - Visibility
  */
 
-.--visible {
+.util--visible {
   @each $key, $breakpoint in $breakpoints {
     &_#{$key} {
       @media (max-width: $breakpoint - 0.1) {

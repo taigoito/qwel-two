@@ -2,10 +2,18 @@
  * Utility - Flex Item
  */
 
-.--flexItem {
+.util--flexItem {
   @for $i from 2 through 12 {
     &_#{$i} {
       @include col($i, true);
+    }
+  }
+
+  @each $key, $breakpoint in $breakpoints {
+    @for $i from 2 through 12 {
+      &_#{$key}-#{$i} {
+        @include col($i, true, $key);
+      }
     }
   }
 

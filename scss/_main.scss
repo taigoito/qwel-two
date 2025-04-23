@@ -4,7 +4,7 @@
 
 .main {
   &__container {
-    @extend %__containerLg;
+    @include container("lg");
   }
 
   &__content {

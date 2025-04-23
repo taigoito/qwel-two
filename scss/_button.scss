@@ -2,13 +2,24 @@
  * Component - Button
  */
 
-.btn {
-  @include makeBlock();
-  @include makeButton();
+.button {
+  @include make-button();
 
-  @each $color, $val in $themeColors {
-    &.--#{$color} {
-      @include background($color);
+  @each $key, $color in $colors {
+    &--#{$key} {
+      @include make-button-color($key);
     }
+  }
+
+  &--sm {
+    @include make-block(10.5rem);
+  }
+  
+  &--md {
+    @include make-block(16.5rem, 4.5rem);
+  }
+  
+  &--lg {
+    @include make-block(22.5rem, 4.5rem);
   }
 }

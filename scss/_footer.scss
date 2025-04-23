@@ -4,11 +4,11 @@
 
 .footer {
   &__inner {
-    padding: space(5);
+    padding: space("x-large");
     text-align: center;
   }
   
   &__container {
-    @extend %__containerLg;
+    @include container("lg");
   }
 }

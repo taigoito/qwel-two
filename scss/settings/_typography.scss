@@ -1,57 +1,84 @@
 // Typography
 
 // 固有のフォント設定
-$fontFamilySansSerif:  "游ゴシック", "Yu Gothic", sans-serif;
-$fontFamilySerif:      "游明朝", "Yu Mincho", serif;
-$fontWeightSansSerif:  500; // 游ゴシック固有
-$fontWeightSerif:      400;
-//$fontFamilySansSerif:  "Noto Sans JP", sans-serif;
-//$fontFamilySerif:      "Noto Serif JP", serif;
-//$fontWeightSansSerif:  400;
-//$fontWeightSerif:      400;
+//$font-family-sans:       "\"Noto Sans JP\"", "\"游ゴシック\"", "\"Yu Gothic\"", sans-serif !default;
+//$font-family-serif:      "\"Noto Serif JP\"", "\"游明朝\"", "\"Yu Mincho\"", serif !default;
+//$font-weight-sans:       400 !default; // 游ゴシック固有
+//$font-weight-serif:      400 !default;
 
 // フォントサイズ
-$fontSizes:            (
-  xs:                    .75rem,
-  sm:                    var(--wp--custom--font-size--small, 0.875rem),
-  nr:                    var(--wp--custom--font-size--normal, 1rem),
-  md:                    var(--wp--custom--font-size--medium, 1.17rem),
-  lg:                    var(--wp--custom--font-size--large, 1.33rem),
-  xl:                    var(--wp--custom--font-size--x-large, 1.5rem),
-  xxl:                   var(--wp--preset--font-size--x-large, 2rem),
-);
+//$font-sizes:             (
+//  x-small:                 0.75rem,  //  6/8
+//  small:                   0.875rem, //  7/8
+//  normal:                  1rem,     //  8/8
+//  medium:                  1.125rem, //  9/8
+//  large:                   1.25rem,  // 10/8
+//  x-large:                 1.5rem,   // 12/8
+//  xx-large:                2rem,     // 16/8
+//) !default;
+
+// 文字サイズの配列からサイズを抽出する関数 ($keyで指定)
+// WordPressカスタムプロパティ直接参照
+@function font-size($key: "normal") {
+  @return var(--wp--preset--font-size--#{$key});
+}
 
 // body
-$fontFamilyBase:       $fontFamilySansSerif;
-$fontWeightBase:       $fontWeightSansSerif;
-$lineHeightBase:       var(--wp--custom--line-height--large, 1.8);
-$letterSpacingBase:    0;
+//$body-typography:        (
+//  font-family:             $font-family-sans,
+//  font-weight:             $font-weight-sans,
+//  line-height:             28.8 / ($font-size-base / ($font-size-base * 0 + 1)), // 単位除去
+//  letter-spacing:          0
+//) !default;
 
-// セクション
-$sectionMarginTop:     space(0);
-$sectionMarginBottom:  space(3);
+//@mixin body() {
+//  @each $prop, $value in $body-typography {
+//    #{$prop}: var(--#{$prop}-base);
+//  }
+//}
+
+// 余白
+//$default-margin:         space() !default;
 
 // 見出し
-$headingMarginTop:     space(3);
-$headingMarginBottom:  space(2);
-$headingFontFamily:    $fontFamilySansSerif;
-$headingFontWeight:    $fontWeightSansSerif;
-$h1FontSize:           map-get($fontSizes, "xxl");
-$h2FontSize:           map-get($fontSizes, "xl");
-$h3FontSize:           map-get($fontSizes, "lg");
-$h4FontSize:           map-get($fontSizes, "md");
-$h5FontSize:           map-get($fontSizes, "nr"); // bold
-$h6FontSize:           map-get($fontSizes, "sm"); // bold
+//$heading-typography:     (
+//  margin-top:              space("medium"),
+//  margin-bottom:           $default-margin,
+//  font-family:             $font-family-sans,
+//  font-weight:             $font-weight-sans,
+//  line-height:             1.2,
+//  letter-spacing:          0
+//) !default;
 
-// 本文
-$textMarginTop:        0;
-$textMarginBottom:     space(2);
+//@mixin heading() {
+//  @each $prop, $value in $heading-typography {
+//    #{$prop}: var(--heading-#{$prop});
+//  }
+//}
 
-// small (行間、字間を拡げる)
-$smallFontSize:        map-get($fontSizes, "sm");
-$smallLineHeight:      var(--wp--custom--line-height--x-large, 2);
-$smallLetterSpacing:   0.04rem;
+//$h1-font-size:           font-size("x-large") !default;
+//$h2-font-size:           font-size("x-large") !default;
+//$h3-font-size:           font-size("large") !default;
+//$h4-font-size:           font-size("medium") !default;
+//$h5-font-size:           font-size("normal") !default; // bold
+//$h6-font-size:           font-size("small") !default; // bold
+
+// small
+//$small-typography:       (
+//  font-size:               font-size("small"),
+//  line-height:             2,
+//  letter-spacing:          0
+//) !default;
+
+@mixin small-text() {
+  //@each $prop, $value in $small-typography {
+  //  #{$prop}: var(--small-#{$prop});
+  //}
+  font-size: font-size("small");
+  line-height: 2;
+  letter-spacing: 0;
+}
 
 // リンク文字の装飾
-$linkDecoration:       none;
-$linkHoverDecoration:  underline;
+$link-decoration:        none !default;
+$link-hover-decoration:  underline !default;

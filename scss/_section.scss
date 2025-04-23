@@ -4,10 +4,10 @@
 
 .section {
   &__inner {
-    background-color: $bodyBg;
+    background-color: $body-bg;
   }
   
   &__container {
-    @extend %__containerLg;
+    @include container("lg");
   }
 }

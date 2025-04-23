@@ -4,4 +4,17 @@
 
 .form {
   @include form();
+
+  &__table {
+    @include table();
+    margin-bottom: space("medium");
+
+    th {
+      width: 12rem;
+    }
+  }
+
+  &__buttons {
+    @include row(center);
+  }
 }
